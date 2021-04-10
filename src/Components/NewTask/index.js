@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fab } from '@material-ui/core';
+import { Fab, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 import { Container, CardTitle, Content, InputContainer, Input } from './styles';
@@ -12,7 +12,15 @@ function NewTask() {
       </CardTitle>
       <Content>
         <InputContainer>
-          <Input aria-label="empty textarea" placeholder="Título" />
+          <TextField
+            size='small'
+            required
+            id="outlined-helperText"
+            label="Título"
+            defaultValue=""
+            variant="outlined"
+            style={{ backgroundColor: 'white', borderRadius: '2px' }}
+          />
           <Input rowsMin={3} aria-label="empty textarea" placeholder="Conteúdo" />
         </InputContainer>
         <Fab color="primary" aria-label="add" size="small" style={{ margin: '10px' }}>

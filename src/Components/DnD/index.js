@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
-import styled from 'styled-components';
 import initialData from '../../initial-data';
 import Column from '../Column';
 import NewTask from '../NewTask';
+import { Container, Div } from './styles';
 
 function DnD() {
   const [data, setData] = useState(initialData)
@@ -14,7 +14,7 @@ function DnD() {
     // document.body.style.color = 'orange'
     // document.body.style.transition = 'background-color 0.2s ease'
     setHomeIndex(data.columnOrder.indexOf(start.source.droppableId))
-   
+
   }
 
   const onDragUpdate = update => {
@@ -101,14 +101,14 @@ function DnD() {
 
   return (
     <Div>
-      
+
       <DragDropContext
         onDragStart={onDragStart}
         onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
         <Container>
-        <NewTask />
+          <NewTask />
 
           {
             data.columnOrder.map((columnId, index) => {
@@ -127,17 +127,3 @@ function DnD() {
 }
 
 export default DnD;
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  flex-wrap: wrap;
-`
-
-const Div = styled.div`
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`

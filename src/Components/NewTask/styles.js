@@ -31,11 +31,16 @@ export const Content = styled.div`
 `
 
 export const InputContainer = styled.div`
-    background-color: white;
-    border-radius: 2px
+    /* background-color: white; */
+    border-radius: 2px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 export const Input = styled(TextareaAutosize)`
-    border: none;
+    border: 1px solid lightgrey;
     width: 200px;
+    border-radius: 2px;
 `
