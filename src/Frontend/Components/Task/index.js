@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { Grid, Paper, IconButton, TextField } from '@material-ui/core';
+import { Grid, IconButton } from '@material-ui/core';
 import CheckCircleOutlineSharpIcon from '@material-ui/icons/CheckCircleOutlineSharp';
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import CreateSharpIcon from '@material-ui/icons/CreateSharp';

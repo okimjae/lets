@@ -1,5 +1,5 @@
 import React from 'react'
-import DnD from './Components/DnD/index';
+import DnD from './Frontend/Components/DnD/index';
 
 function App() {
 

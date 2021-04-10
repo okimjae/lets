@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
-import initialData from '../../initial-data';
+import initialData from '../../../initial-data';
 import Column from '../Column';
 import NewTask from '../NewTask';
 import { Container, Div } from './styles';
@@ -8,7 +8,6 @@ import { Container, Div } from './styles';
 function DnD() {
   const [data, setData] = useState(initialData)
   const [homeIndex, setHomeIndex] = useState(null)
-  console.log(data)
 
   const onDragStart = start => {
     // document.body.style.color = 'orange'

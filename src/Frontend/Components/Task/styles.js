@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Grid, Paper, IconButton, TextField } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 
 export const Container = styled.div`
 border-radius: 2px;
