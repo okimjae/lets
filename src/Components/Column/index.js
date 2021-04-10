@@ -33,7 +33,7 @@ function Column({ column, tasks, isDropDisabled }) {
 
 export default Column;
 
-const Container = styled.div`
+const Container = styled.div` 
     margin: 8px;
     border-radius: 8px;
     width: 220px;

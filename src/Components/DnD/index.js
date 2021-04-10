@@ -2,27 +2,28 @@ import React, { useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import initialData from '../../initial-data';
-import Column from '../Column'
+import Column from '../Column';
+import NewTask from '../NewTask';
 
 function DnD() {
   const [data, setData] = useState(initialData)
   const [homeIndex, setHomeIndex] = useState(null)
-
+  console.log(data)
 
   const onDragStart = start => {
-    document.body.style.color = 'orange'
-    document.body.style.transition = 'background-color 0.2s ease'
-
+    // document.body.style.color = 'orange'
+    // document.body.style.transition = 'background-color 0.2s ease'
     setHomeIndex(data.columnOrder.indexOf(start.source.droppableId))
-
+   
   }
 
   const onDragUpdate = update => {
     const { destination } = update;
-    const opacity = destination
-      ? destination.index / Object.keys(data.tasks).length
-      : 0
-    document.body.style.backgroundColor = `rgba(153, 141, 217, ${opacity})`;
+    console.log(destination)
+    // const opacity = destination
+    //   ? destination.index / Object.keys(data.tasks).length
+    //   : 0
+    // document.body.style.backgroundColor = `rgba(153, 141, 217, ${opacity})`;
   }
 
   const onDragEnd = result => {
@@ -100,12 +101,15 @@ function DnD() {
 
   return (
     <Div>
+      
       <DragDropContext
         onDragStart={onDragStart}
         onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
         <Container>
+        <NewTask />
+
           {
             data.columnOrder.map((columnId, index) => {
               const column = data.columns[columnId]
@@ -135,4 +139,5 @@ const Div = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 `
