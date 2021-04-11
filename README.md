@@ -14,3 +14,4 @@ Algumas coisas que gostaria de ter feito:
     - Separar em 2 repositórios, uma de backend e outra de front.
     - Implementar Joi no back e aprender a usar jest usando uns testes bem básicos.
     - Utilizar o MongoDB para persistência de dados.
+    - Adicionar redux para gerenciamento de estados.
