@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { Grid, IconButton } from '@material-ui/core';
+import { Grid, IconButton, TextareaAutosize } from '@material-ui/core';
 import CheckCircleOutlineSharpIcon from '@material-ui/icons/CheckCircleOutlineSharp';
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import CreateSharpIcon from '@material-ui/icons/CreateSharp';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
-import { Container, Description, EditTitle, Title, Content, Icons, Default, Edit } from './styles';
+import { Container, Description, EditTitle, Title, Content, Icons, Default, Edit, ContentText } from './styles';
 
 function Task({ task, index }) {
   const isDragDisabled = task.id === ''
@@ -33,14 +33,22 @@ function Task({ task, index }) {
                   size="small"
                   defaultValue={task.title}
                   edit={edit}
-                  inputProps={{ fontWeight: 'bold' }}
                 />
               }
 
               <Title edit={edit}>
                 {task.title}
               </Title>
-              <Content>
+
+              {edit &&
+                <ContentText
+                  rowsMin={3}
+                  placeholder="Conteúdo"
+                  defaultValue={task.content}
+                  edit={edit}
+                />
+              }
+              <Content edit={edit}>
                 {task.content}
               </Content>
             </Description>
@@ -50,14 +58,19 @@ function Task({ task, index }) {
                   <CreateSharpIcon />
                 </IconButton>
                 <IconButton color="secondary">
-                  <DeleteSharpIcon />
+                  <DeleteSharpIcon onClick={() => {
+                    console.log({ 'DELETE': `id: ${task.id}` })
+                    setEdit(false)
+                  }} />
                 </IconButton>
               </Default>
               <Edit edit={edit}>
                 <IconButton color="primary">
-                  <CheckCircleOutlineSharpIcon />
+                  <CheckCircleOutlineSharpIcon onClick={() => {
+                    console.log({ 'EDIT': `id: ${task.id}` })
+                    setEdit(false)
+                  }} />
                 </IconButton>
-
                 <IconButton color="secondary">
                   <HighlightOffSharpIcon onClick={() => setEdit(false)} />
                 </IconButton>
